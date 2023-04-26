@@ -15,7 +15,7 @@ private:
     int xrotation[NUM_TILES];
     int yrotation[NUM_TILES];
     int rotCount = 0;
-    blockType type;
+    int type;
 
 
 public:
@@ -23,12 +23,12 @@ public:
 
     void setLoc(const point&);
     void setColor(const color&);
-    void setType(const blockType);
+    void setType(const int);
     void setSize(const int);
 
     point getLoc() const;
     color getShade() const;
-    blockType getType() const;
+    int getType() const;
     int getSize();
 
     void draw(SDL_Plotter& g);
