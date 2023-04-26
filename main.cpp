@@ -4,7 +4,6 @@
 #include "tile.h"
 #include "block.h"
 #include "constants.h"
-#include "StartScreen.h"
 
 using namespace std;
 
@@ -12,8 +11,6 @@ using namespace std;
 
 int main(int argc, char ** argv)
 {
-    start s;
-    s.openScreen();
 
     SDL_Plotter g(NUM_ROW, NUM_COL);
     char key;
@@ -23,13 +20,13 @@ int main(int argc, char ** argv)
             g.plotPixel(i, j, BACKGROUND);
         }
     }
-
+    srand(time(0));
     Block b;
-    b.setType(l_shape2);
+    b.setType(rand() % 6);
     b.setSize(g.getCol() / 12);
 
     while (!g.getQuit()){
-		if(g.kbhit()){
+        if(g.kbhit()){
             key = g.getKey();
             switch(key) {
                 case RIGHT_ARROW:
@@ -42,12 +39,12 @@ int main(int argc, char ** argv)
                     b.rotate();
                     break;
             }
-		}
+        }
 
         b.move();
         b.draw(g);
-		g.update();
-		g.Sleep(10);
+        g.update();
+        g.Sleep(10);
 
     }
 }
