@@ -15,7 +15,7 @@ void Block::setColor(const color& shade) {
     }
 }
 
-void Block::setType(const blockType type) {
+void Block::setType(const int type) {
     point pos[NUM_TILES];
 
     this->type = type;
@@ -127,7 +127,7 @@ color Block::getShade() const {
     return shade;
 }
 
-blockType Block::getType() const {
+int Block::getType() const {
     return type;
 }
 
@@ -988,4 +988,3 @@ void Block::rotate() {
         data[i].setLocation(pos[i]);
     }
 }
-
